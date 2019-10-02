@@ -18,6 +18,7 @@
  */
 
 #import "CDVWKWebViewEngine.h"
+#import "YWebView.h"
 #import "CDVWKWebViewUIDelegate.h"
 #import "CDVWKProcessPoolFactory.h"
 #import <Cordova/NSDictionary+CordovaPreferences.h>
@@ -58,8 +59,11 @@
         if (NSClassFromString(@"WKWebView") == nil) {
             return nil;
         }
+        if (NSClassFromString(@"YWebView") == nil) {
+            return nil;
+        }
 
-        self.engineWebView = [[WKWebView alloc] initWithFrame:frame];
+        self.engineWebView = [[YWebView alloc] initWithFrame:frame];
     }
 
     return self;
